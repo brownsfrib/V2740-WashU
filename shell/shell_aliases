@@ -1,0 +1,15 @@
+alias ls='ls -F --color'
+alias l='ls'
+alias ll='ls -lth'
+alias la='ls -a'
+alias m='more'
+alias cp='cp -i'
+alias rm='rm -i'
+alias mv='mv -i'
+
+alias ..='cd ../'
+alias ,,='cd -'
+
+
+alias ringbuffer='$DAQBIN/ringbuffer'
+

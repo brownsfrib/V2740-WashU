@@ -1,0 +1,12 @@
+glom: building events: 10
+Wait version 1.0 (C) Copyright 2002 Michigan State University all rights reserved
+Wait comes with ABSOLUTELY NO WARRANTY;
+This is free software, and you are welcome to redistribute it
+under certain conditions; See http://www.gnu.org/licenses/gpl.txt
+for details
+Wait was written by:
+
+Ron Fox
+Got port 30999 for orderer 
+EOF on read of header! ignore connection.
+EOF on read of header! ignore connection.

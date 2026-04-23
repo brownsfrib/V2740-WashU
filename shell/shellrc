@@ -1,0 +1,33 @@
+#!/bin/bash
+
+if [ -f $basePath/shell/shell_functions ]; then
+	. $basePath/shell/shell_functions
+fi
+if [ -f $basePath/shell/shell_aliases ]; then
+	. $basePath/shell/shell_aliases
+fi
+
+export HISTTIMEFORMAT='%F~%T $ '
+
+echo -e "Running container on \033[1;33m$SINGULARITY_NAME\033[0m"
+
+PROMPT_COMMAND="ps1ID=$imgName"
+export PS1='\[\033[1;93m\]($ps1ID)\[\033[0m\] <\h:\W> '
+
+echo -e "Setting up DAQ configuration (see $basePath/shell/shellrc)"
+
+# I think this is the latest 12.1 nscldaq version? there's no symlink so
+source /usr/opt/daq/12.1-018/daqsetup.bash -f
+export TCLLIBPATH="$TCLLIBPATH $DAQROOT/TclLibs $DAQROOT/lib"
+export TCLLIBPATH_OK=""
+
+# Setting up libraries
+export LD_LIBRARY_PATH=/lib:/usr/lib:/usr/local/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/lib64
+
+# Updating DAQ libraries/paths
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/opt/nscldaq/12.1-018/lib
+
+# Sourcing ROOT environment
+source /usr/opt/root/6.26.04/bin/thisroot.sh
+

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Set EVENTS= variable to set stage area in a directory that is not home dir
+
+EVENTS=$basePath/stagearea $DAQBIN/ReadoutShell

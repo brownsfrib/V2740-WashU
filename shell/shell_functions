@@ -1,0 +1,14 @@
+function V2740_LANA(){
+	cd $basePath
+	. env_V270_LANA.sh
+}
+
+function ringbuffer(){
+	$DAQBIN/ringbuffer $@
+}
+
+function readoutshell(){
+	cd /user/hira/V2740_LANA/readout 
+	EVENTS=/user/hira/V270_LANA/stagearea $DAQBIN/ReadoutShell
+}
+
