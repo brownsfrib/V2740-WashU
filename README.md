@@ -8,17 +8,25 @@ The following contains instructions on setting up and taking data with a [CAEN V
 
 ## Layout of repository
 ### Shell
-- test
-- 
+- File **shellrc** is the only critical file you'll have to update.
+- In **shellrc**, update the FRIBDAQ version (currently set to 12.1-018) to whatever DAQ version you are using
+- Depending on which FRIBDAQ ISO image you're using (bookworm or bullseye) you will also have to update the path to the ROOT setup script (currently set using bullseye to ROOT version 6.26.04)
+- Update shell_aliases and shell_functions at your leisure.
 
 ### Readout
-- test
+- 
 - 
   
 ### Unpacker
-- test
-- 
+- Source code/binary for unpacking raw binary (evt) files from the V2740
+- There is a dedicated README in this directory with instructions on how to setup a configuration file/use the unpacker. More details inside.
+- Fun fact, this is also a generalized VMUSB unpacker! Kinda cool!
 
 ### Waveform-viewer
-- test
-- 
+- Binary for viewing digitized waveforms online. 
+- Binary stored as **waveform-viewer/bin/viewWaveform**. The master parent directory has a symlink to this binary called *onlineTrace*.
+- If you run this executable, I suggest do **not** run it on the same DAQ machine, lest you backlog the event building ring buffer. If you do run it on the same DAQ machine that is running the ReadoutShell, do not run it for very long (unless you have allocated a huge ring buffer!)
+- Example usage:
+    - Given an event building ringbuffer named **evbout** running over a tcp connection, type:
+    - ./onlineTrace tcp://localhost/evbout
+- Currently setup to view channels 0-16. More details inside on updating the source code - it is a very light executable. 
