@@ -47,7 +47,7 @@ In Skeleton::SetupReadout, change the PID to match the PID of the digitizer. Cha
   );
 ```
 
-## Steps to setup the ReadoutShell
+# Steps to setup the ReadoutShell
 This assumes you have properly installed the [CAEN V2740 USB protocols](https://www.caen.it/download/?filter=V2740) (requires sudo permissions to run) and have already created two ring buffers to store the raw data and the event-built data.
 
 1. C **config/configuration.tcl** one directory up into the **Readout** directory.
