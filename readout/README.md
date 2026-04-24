@@ -51,7 +51,7 @@ In Skeleton::SetupReadout, change the PID to match the PID of the digitizer. Cha
 This assumes you have properly installed the [CAEN V2740 USB protocols](https://www.caen.it/download/?filter=V2740) (requires sudo permissions to run) and have already created two ring buffers to store the raw data and the event-built data.
 
 1. C **config/configuration.tcl** one directory up into the **Readout** directory.
-2. Refer to the FRIBDAQ documentation, make whatever changes you need to to configure
+2. Refer to the FRIBDAQ documentation, make whatever changes you need to to configuration.tcl
 3. Power on the digitizer and plug it into your DAQ machine.
 4. Obtain the PID of the digitizer. This can be done by rerunning the regPID.sh script provided from the CAEN USB driver.
 5. Open Skeleton.cpp. Update the **addModule** command with your PID and module name.
