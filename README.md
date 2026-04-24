@@ -7,5 +7,6 @@ The following contains instructions on setting up and taking data with a [CAEN V
 2. All programs are contained in an [FRIBDAQ container](https://hub.docker.com/u/fribdaq) greater than bullseye (bullseye or bookworm should work).
 
 ### Layout of repository
-- test
+- #Shell
+    - testing
 - test
