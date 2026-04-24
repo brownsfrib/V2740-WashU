@@ -54,4 +54,12 @@ This assumes you have properly installed the [CAEN V2740 USB protocols](https://
     true                      // Indicates it's USB not Ethernet defaults to false.
   );```
 
-6. asdf
+6. Open ReadoutCallouts.tcl. Set {EventRing} to the name of your event-builder ring and {RawRing} to you raw data ring. Set your glom window as you see fit.
+   	- Setting the glom window appropriately depends on what kind of detector you have. I would suggest starting with a low glom window (1-2) and increasing as needed
+7. Ensure that the EVENTS= tag in the ReadoutShell file is pointing to your stagearea.
+   	- Note that this path MUST be a symbolic link to your real stagearea!
+8. Compile the Skeleton class using the provided Makefile.
+9. Launch the ReadoutShell. Set your working directory to **this directory**. Set the readout script to **the binary you just compiled, named Readout**
+10. Link the ReadoutShell to your RawRing. I have used **--ring {RawRing} --no-barriers** during my testing.
+11. Start the ReadoutShell. You should see an event building GUI pop up at the bottom of the ReadoutShell.
+    - On the bottom right, you will see your {EventRing} name, with a radio button underneath. Click that button to have the ReadoutShell write {EventRing} to disk.
