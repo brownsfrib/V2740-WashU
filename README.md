@@ -17,11 +17,12 @@ The following contains instructions on setting up and taking data with a [CAEN V
 - Storage of the **ReadoutShell** GUI script.
 - Storage of the custom **Readout** binary used for unpacking data from the V2740. 
 - Storage of the **config/configuration.tcl** script used to set FPGA parameters on the V2740.
+- Storage of the **ReadoutCallouts.tcl** and **Skeleton.cpp** framework, allowing you to set event building parameters and connect your V2740 to FRIBDAQ ringbuffers.
 - More details inside. I highly suggest [this documentation](https://docs.frib.msu.edu/daq/newsite/nscldaq-12.0/c15708.html), specifically section 72.2 on "Getting Data".
   
 ### Unpacker
 - Source code/binary for unpacking raw binary (evt) files from the V2740
-- There is a dedicated README in this directory with instructions on how to setup a configuration file/use the unpacker. More details inside.
+- More details inside with instructions on how to setup a configuration file/use the unpacker.
 - Fun fact, this is also a generalized VMUSB unpacker! Kinda cool!
 
 ### Waveform-viewer
