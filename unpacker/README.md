@@ -13,8 +13,8 @@ It also supports VMUSB readout and is nicely generalized, but I won't go into de
 - **unpacker create {name}** : create an instance of the unpacker named "{name}"
   
 - **{name} stack module v2740** : register the V2740 data recorder to the unpacker
-    - *-recordsamples* needs to be equal to the number of samples you set in Readout/configuration.tcl ()
-    - *-nsPerSample* needs to be set to the time bin resolution set in Readout/configuration.tcl ()
+    - *-recordsamples* needs to be equal to the number of samples you set in Readout/configuration.tcl (recordsamples in v27xxpha config)
+    - *-nsPerSample* needs to be set to the time bin resolution set in Readout/configuration.tcl (waveresolutions in v27xxpha config)
       
 - **{name} tree create {TreeName}** create an output tree with {TreeName}
     - This creates a file named "run-{runNumber}-{TreeName}.root. 
