@@ -14,8 +14,10 @@ The following contains instructions on setting up and taking data with a [CAEN V
 - Update shell_aliases and shell_functions at your leisure.
 
 ### Readout
-- 
-- 
+- Storage of the **ReadoutShell** GUI script.
+- Storage of the custom **Readout** binary used for unpacking data from the V2740. 
+- Storage of the **config/configuration.tcl** script used to set FPGA parameters on the V2740.
+- More details inside. I highly suggest [this documentation](https://docs.frib.msu.edu/daq/newsite/nscldaq-12.0/c15708.html), specifically section 72.2 on "Getting Data".
   
 ### Unpacker
 - Source code/binary for unpacking raw binary (evt) files from the V2740
@@ -25,7 +27,7 @@ The following contains instructions on setting up and taking data with a [CAEN V
 ### Waveform-viewer
 - Binary for viewing digitized waveforms online. 
 - Binary stored as **waveform-viewer/bin/viewWaveform**. The master parent directory has a symlink to this binary called *onlineTrace*.
-- If you run this executable, I suggest do **not** run it on the same DAQ machine, lest you backlog the event building ring buffer. If you do run it on the same DAQ machine that is running the ReadoutShell, do not run it for very long (unless you have allocated a huge ring buffer!)
+- If you run this executable, I suggest you do **not** run it on the same DAQ machine, lest you backlog the event building ring buffer. If you do run it on the same DAQ machine that is running the ReadoutShell, do not run it for very long (unless you have allocated a huge ring buffer!)
 - Example usage:
     - Given an event building ringbuffer named **evbout** running over a tcp connection, type:
     - ./onlineTrace tcp://localhost/evbout
