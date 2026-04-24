@@ -37,23 +37,24 @@ EVBC::registerRingSource tcp://localhost/{RawRing} "" {sourceID} {ModuleName} 1 
 - ModuleName : For a standalone V2740 run this is cosmetic. The name appears in the event builder window after a run has begun.
 
 ### Skeleton.cpp
+In Skeleton::SetupReadout, change the PID to match the PID of the digitizer. Change the module name to match whatever module name you chose when writing configuration.tcl. 
+```cpp
+   pSegment->addModule(
+    "adc1",                   // Name of module in configuration.tcl
+    "53405",                   // PID for USB connection, IP If ethernet.
+    1,                        // System unique source id.
+    true                      // Indicates it's USB not Ethernet defaults to false.
+  );
+```
 
-### Steps to setup the ReadoutShell
+## Steps to setup the ReadoutShell
 This assumes you have properly installed the [CAEN V2740 USB protocols](https://www.caen.it/download/?filter=V2740) (requires sudo permissions to run) and have already created two ring buffers to store the raw data and the event-built data.
 
 1. C **config/configuration.tcl** one directory up into the **Readout** directory.
 2. Refer to the FRIBDAQ documentation, make whatever changes you need to to configure
 3. Power on the digitizer and plug it into your DAQ machine.
 4. Obtain the PID of the digitizer. This can be done by rerunning the regPID.sh script provided from the CAEN USB driver.
-5. Open Skeleton.cpp. In Skeleton::SetupReadout, change the PID to match the PID of the digitizer. Change the module name to match whatever module name you chose when writing configuration.tcl
-   ```cpp
-   pSegment->addModule(
-    "adc1",                   // Name of module in configuration.tcl
-    "53405",                   // PID for USB connection, IP If ethernet.
-    1,                        // System unique source id.
-    true                      // Indicates it's USB not Ethernet defaults to false.
-  );```
-
+5. Open Skeleton.cpp. Update the **addModule** command with your PID and module name.
 6. Open ReadoutCallouts.tcl. Set {EventRing} to the name of your event-builder ring and {RawRing} to you raw data ring. Set your glom window as you see fit.
    	- Setting the glom window appropriately depends on what kind of detector you have. I would suggest starting with a low glom window (1-2) and increasing as needed
 7. Ensure that the EVENTS= tag in the ReadoutShell file is pointing to your stagearea.
